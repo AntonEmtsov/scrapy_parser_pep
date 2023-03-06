@@ -1,9 +1,10 @@
 import csv
 from collections import defaultdict
+from datetime import datetime as dt
 
 from pep_parse.settings import (
     BASE_DIR,
-    DATA_FORMAT,
+    DATE_FORMAT,
     RESULTS,
     STATUS_SUMMARY_FILE_NAME,
 )
@@ -23,10 +24,8 @@ class PepParsePipeline:
         self.results_dir.mkdir(exist_ok=True)
 
     def close_spider(self, spider):
-        file_name = (
-            self.results_dir / STATUS_SUMMARY_FILE_NAME.format(
-                DATA_FORMAT=DATA_FORMAT,
-            )
+        file_name = self.results_dir / STATUS_SUMMARY_FILE_NAME.format(
+            date=dt.now().strftime(DATE_FORMAT),
         )
         with open(file_name, mode='w', encoding='utf-8') as file:
             csv.writer(

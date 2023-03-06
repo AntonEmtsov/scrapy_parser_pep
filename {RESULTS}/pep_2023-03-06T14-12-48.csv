@@ -1,0 +1,42 @@
+number,name,status
+217,Display Hook for Interactive Use,Final
+210,Decoupling the Interpreter Loop,Rejected
+209,Multi-dimensional Arrays,Withdrawn
+214,Extended Print Statement,Final
+1,PEP Purpose and Guidelines,Active
+216,Docstring Format,Rejected
+211,Adding A New Outer Product Operator,Rejected
+213,Attribute Access Handlers,Deferred
+208,Reworking the Coercion Model,Final
+215,String Interpolation,Superseded
+206,Python Advanced Library,Withdrawn
+212,Loop Counter Iteration,Rejected
+205,Weak References,Final
+204,Range Literals,Rejected
+207,Rich Comparisons,Final
+203,Augmented Assignments,Final
+8101,2020 Term Steering Council election,Final
+8102,2021 Term Steering Council election,Final
+8103,2022 Term Steering Council election,Final
+8100,January 2019 Steering Council election,Final
+8104,2023 Term Steering Council election,Active
+8016,The Steering Council Model,Accepted
+8015,Organization of the Python community,Rejected
+8014,The Commons Governance Model,Rejected
+8010,The Technical Leader Governance Model,Rejected
+8001,Python Governance Voting Process,Final
+8002,Open Source Governance Survey,Final
+3333,Python Web Server Gateway Interface v1.0.1,Final
+8011,Python Governance Model Lead by Trio of Pythonistas,Rejected
+8012,The Community Governance Model,Rejected
+8013,The External Council Governance Model,Rejected
+8000,Python Language Governance Proposal Overview,Final
+3154,Pickle protocol version 4,Final
+3156,Asynchronous IO Support Rebooted: the “asyncio” Module,Final
+3150,Statement local namespaces (aka “given” clause),Deferred
+3152,Cofunctions,Rejected
+3155,Qualified name for classes and functions,Final
+3151,Reworking the OS and IO exception hierarchy,Final
+3153,Asynchronous IO support,Superseded
+3148,futures - execute computations asynchronously,Final
+3149,ABI version tagged .so files,Final

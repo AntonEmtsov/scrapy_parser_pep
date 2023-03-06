@@ -1,13 +1,16 @@
 import re
+
 import scrapy
 
-from pep_parse.settings import PATTERN
 from pep_parse.items import PepParseItem
+from pep_parse.settings import HTTPS_URL, PATTERN, URL
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
-    start_urls = ['https://peps.python.org/']
+    allowed_domains = [URL]
+    start_urls = [HTTPS_URL.format(url=URL)]
+    # start_urls = [f'https://{URL}/']
 
     def parse(self, response):
         for pep in response.css(
@@ -20,12 +23,8 @@ class PepSpider(scrapy.Spider):
             PATTERN,
             ''.join(response.css('h1.page-title::text').getall()),
         ).groups()
-        yield PepParseItem(
-            {
-                'number': number,
-                'name': name,
-                'status': response.css(
-                    'dt:contains("Status") + dd abbr::text'
-                ).get(),
-            }
-        )
+        yield PepParseItem(dict(
+            number=number,
+            name=name,
+            status=response.css('dt:contains("Status") + dd abbr::text').get(),
+        ))
