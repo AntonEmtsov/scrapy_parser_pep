@@ -3,14 +3,13 @@ import re
 import scrapy
 
 from pep_parse.items import PepParseItem
-from pep_parse.settings import HTTPS_URL, PATTERN, URL
+from pep_parse.settings import PATTERN, URL
 
 
 class PepSpider(scrapy.Spider):
     name = 'pep'
     allowed_domains = [URL]
-    start_urls = [HTTPS_URL.format(url=URL)]
-    # start_urls = [f'https://{URL}/']
+    start_urls = [f'https://{URL}/']
 
     def parse(self, response):
         for pep in response.css(

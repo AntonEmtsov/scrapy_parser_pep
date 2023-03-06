@@ -4,7 +4,6 @@ from pathlib import Path
 BOT_NAME = 'pep_parse'
 SPIDER_MODULES = ['pep_parse.spiders']
 ROBOTSTXT_OBEY = True
-HTTPS_URL = 'https://{url}/'
 URL = 'peps.python.org'
 
 ITEM_PIPELINES = {
@@ -17,7 +16,7 @@ STATUS_SUMMARY_FILE_NAME = 'status_summary_{date}.csv'
 RESULTS = 'results'
 
 FEEDS = {
-    f'{RESULTS}' + '/pep_%(time)s.csv': {
+    f'{RESULTS}/pep_%(time)s.csv': {
         'format': 'csv',
         'fields': ['number', 'name', 'status'],
         'overwrite': True,

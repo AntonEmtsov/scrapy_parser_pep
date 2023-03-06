@@ -13,10 +13,10 @@ from pep_parse.settings import (
 class PepParsePipeline:
 
     def open_spider(self, spider):
-        self.result = defaultdict(int)
+        self.results = defaultdict(int)
 
     def process_item(self, item, spider):
-        self.result[item['status']] += 1
+        self.results[item['status']] += 1
         return item
 
     def __init__(self):
@@ -24,18 +24,17 @@ class PepParsePipeline:
         self.results_dir.mkdir(exist_ok=True)
 
     def close_spider(self, spider):
-        file_name = self.results_dir / STATUS_SUMMARY_FILE_NAME.format(
-            date=dt.now().strftime(DATE_FORMAT),
-        )
-        with open(file_name, mode='w', encoding='utf-8') as file:
+        with open(self.results_dir / STATUS_SUMMARY_FILE_NAME.format(
+            date=dt.now().strftime(DATE_FORMAT)),
+            mode='w',
+            encoding='utf-8',
+        ) as file:
             csv.writer(
                 file,
                 dialect=csv.unix_dialect,
                 quoting=csv.QUOTE_NONE,
-            ).writerows(
-                (
-                    ('Статус', 'Колличество'),
-                    *sorted(self.result.items()),
-                    ('Всего', sum(self.result.values())),
-                )
-            )
+            ).writerows((
+                ('Статус', 'Колличество'),
+                *sorted(self.results.items()),
+                ('Всего', sum(self.results.values())),
+            ))
