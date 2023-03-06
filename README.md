@@ -28,7 +28,7 @@ scrapy crawl pep
 
 Создается два файла с результатами парсинга:
  - ```pep_data_time.csv```  все существующие PEP с их номером, названием и статусом.
- - ```statis_summary_data_time.csv``` сумма по каждому статусу и их общее количество.
+ - ```status_summary_data_time.csv``` сумма по каждому статусу и их общее количество.
 pep_data_time.csv
 ```
 number,name,status
@@ -39,7 +39,7 @@ number,name,status
 ...
 ```
 
-statis_summary_data_time.csv
+status_summary_data_time.csv
 ```
 Статус,Колличество
 Accepted,44
