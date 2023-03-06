@@ -6,4 +6,4 @@ RESULTS = 'results'
 DATA_FORMAT = dt.now().strftime("%Y-%m-%d_%H-%M-%S")
 STATUS_SUMMARY_FILE_NAME = 'status_summary_{DATA_FORMAT}.csv'
 
-PATTERN = r"^PEP\s(?P<number>\d+)[\s–]+(?P<name>.*)"
+PATTERN = r'^PEP\s(?P<number>\d+)[\s–]+(?P<name>.*)'
