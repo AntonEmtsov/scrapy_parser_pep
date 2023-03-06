@@ -1,7 +1,7 @@
 import csv
 from collections import defaultdict
 
-from pep_parse.constants import (
+from pep_parse.settings import (
     BASE_DIR,
     DATA_FORMAT,
     RESULTS,
@@ -10,6 +10,7 @@ from pep_parse.constants import (
 
 
 class PepParsePipeline:
+
     def open_spider(self, spider):
         self.result = defaultdict(int)
 
@@ -17,11 +18,13 @@ class PepParsePipeline:
         self.result[item['status']] += 1
         return item
 
+    def __init__(self):
+        self.results_dir = BASE_DIR / RESULTS
+        self.results_dir.mkdir(exist_ok=True)
+
     def close_spider(self, spider):
-        results_dir = BASE_DIR / RESULTS  # тесты
-        results_dir.mkdir(exist_ok=True)
         file_name = (
-            results_dir / STATUS_SUMMARY_FILE_NAME.format(
+            self.results_dir / STATUS_SUMMARY_FILE_NAME.format(
                 DATA_FORMAT=DATA_FORMAT,
             )
         )
@@ -29,6 +32,7 @@ class PepParsePipeline:
             csv.writer(
                 file,
                 dialect=csv.unix_dialect,
+                quoting=csv.QUOTE_NONE,
             ).writerows(
                 (
                     ('Статус', 'Колличество'),
