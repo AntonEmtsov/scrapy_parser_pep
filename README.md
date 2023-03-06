@@ -8,11 +8,12 @@
 ### Как запустить проект:
 Клонировать репозиторий:
 ```
-https://github.com/russ044/scrapy_parser_pep.git
+git clone https://github.com/russ044/scrapy_parser_pep.git
 ```
 Создать и активировать виртуальное окружение:
 ```
 python -m venv venv
+.\venv\Scripts\activate
 ```
 Установить зависимостей:
 ```
